@@ -68,7 +68,7 @@ function Navbar() {
             alt="AgriConnect Logo"
             style={{ width: "55px", height: "45px" }}
           />{" "}
-          AgriConnect
+          EcoAgriNet
         </Link>
         <button
           className="navbar-toggler"

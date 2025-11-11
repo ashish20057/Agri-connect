@@ -177,13 +177,28 @@ export default function Login() {
     );
 
     ttSearchBox.on("tomtom.searchbox.resultselected", function (data) {
-      const newLocation =
-        String(data.data.result.position.lat) +
-        "," +
-        String(data.data.result.position.lng);
-      document.getElementById("location").value = newLocation;
-      setLocation(newLocation);
-    });
+  // Defensive checks
+  if (
+    data &&
+    data.data &&
+    data.data.result &&
+    data.data.result.position &&
+    typeof data.data.result.position.lat === "number" &&
+    typeof data.data.result.position.lng === "number"
+  ) {
+    const newLocation =
+      String(data.data.result.position.lat) +
+      "," +
+      String(data.data.result.position.lng);
+    document.getElementById("location").value = newLocation;
+    setLocation(newLocation);
+  } else {
+    // Optionally handle missing position gracefully, e.g. clear location or show error
+    setLocation("");
+    console.warn("Location data missing or invalid from TomTom search result:", data);
+  }
+});
+
 
     var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
     document.getElementById("searchBoxContainer").appendChild(searchBoxHTML);

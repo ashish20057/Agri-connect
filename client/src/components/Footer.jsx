@@ -61,11 +61,11 @@ export default function Footer() {
                   style={{ fontFamily: "Quicksand" }}
                 >
                   <MDBIcon icon="gem" className="me-3" />
-                  TEAM-BLITZ
+                  EcoAgriNet
                 </h6>
                 <p style={{ fontFamily: "Quicksand" }}>
-                  Crafted with passion by Team Blitz for{" "}
-                  <strong>HackOut-2024</strong>, showcasing our dedication in
+                  Crafted with passion by EcoAgriNet for{" "}
+                  <strong>Major_Project</strong>, showcasing our dedication in
                   every detail.
                 </p>
               </MDBCol>
@@ -78,11 +78,11 @@ export default function Footer() {
                 </h6>
                 <p style={{ fontFamily: "Quicksand" }}>
                   <MDBIcon icon="home" className="me-2" />
-                  DAIICT, INDIA
+                  Ghaziabad, India
                 </p>
                 <p style={{ fontFamily: "Quicksand" }}>
                   <MDBIcon icon="envelope" className="me-2" />
-                  abc@daiict.ac.in
+                  ecoagrinet@gmail.com
                 </p>
               </MDBCol>
             </MDBRow>
@@ -95,7 +95,7 @@ export default function Footer() {
             href="https://github.com/Dharmesh-Kota/Agri-Connect"
             style={{ fontFamily: "Quicksand" }}
           >
-            TEAM-BLITZ
+            EcoAgriNet
           </a>
         </div>
       </MDBFooter>

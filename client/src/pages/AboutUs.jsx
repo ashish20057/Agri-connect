@@ -54,28 +54,28 @@ function AboutUS() {
                   <h5 style={{ fontFamily: "Quicksand" }}>
                     <a
                       style={{ textDecoration: "none" }}
-                      href="https://www.linkedin.com/in/dharmesh-kota-8a9810268/"
+                      
                       target="_blank"
                     >
-                      Dharmesh Kota
+                     Ashish KUmar
                     </a>
                   </h5>
                   <h5 style={{ fontFamily: "Quicksand" }}>
                     <a
                       style={{ textDecoration: "none" }}
-                      href="https://www.linkedin.com/in/manoj-dhundhalva-62ba0b24b/"
+                      
                       target="_blank"
                     >
-                      Manoj Dhundhalva
+                      Anant Singh
                     </a>
                   </h5>
                   <h5 style={{ fontFamily: "Quicksand" }}>
                     <a
                       style={{ textDecoration: "none" }}
-                      href="https://www.linkedin.com/in/devangsvaghani/"
+                 
                       target="_blank"
                     >
-                      Devang Vaghani
+                      Aryan Singh
                     </a>
                   </h5>
                   <h5 style={{ fontFamily: "Quicksand" }}>
@@ -84,7 +84,7 @@ function AboutUS() {
                       href="https://www.linkedin.com/in/rhythm-panchal-108398253/"
                       target="_blank"
                     >
-                      Rhythm Panchal
+                      Prakhar Somwanshi
                     </a>
                   </h5>
                 </div>

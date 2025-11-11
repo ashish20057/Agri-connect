@@ -38,7 +38,7 @@ function LandingPage() {
                 fontFamily: "'DM Serif Display', serif",
               }}
             >
-              Welcome To Agri Connect
+              Welcome To EcoAgriNet
             </Typography>
           </Grid>
         </Grid>
