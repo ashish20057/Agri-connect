@@ -10,7 +10,6 @@ A comprehensive digital platform connecting agricultural professionals, machiner
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints)
 - [Plant Disease Detection](#plant-disease-detection)
 - [Database Models](#database-models)
 - [Authentication](#authentication)
@@ -80,131 +79,54 @@ Agri-Connect is a full-stack web application designed to bridge the gap between 
 
 ## 📁 Project Structure
 
-```
-Agri-Connect/
-├── client/                          # Frontend React application
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/              # Reusable UI components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── ApplicationCard.jsx
-│   │   │   ├── MachineryRentalCard.jsx
-│   │   │   └── ...
-│   │   ├── pages/                   # Page components
-│   │   │   ├── Home.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── Profile.jsx
-│   │   │   ├── WorkApplications.jsx
-│   │   │   ├── RentApplications.jsx
-│   │   │   ├── DetectDisease.jsx
-│   │   │   └── ...
-│   │   ├── context/                 # React Context for state
-│   │   │   └── auth.jsx
-│   │   ├── CSS/                     # Stylesheets
-│   │   └── App.js
-│   └── package.json
-│
-├── server/                          # Backend Express application
-│   ├── config/                      # Configuration files
-│   │   ├── authMiddleware.js
-│   │   ├── jwtConfig.js
-│   │   ├── jwtUtils.js
-│   │   ├── mongoose.js
-│   │   └── nodemailer.js
-│   ├── controller/                  # Business logic
-│   │   ├── hiring.js
-│   │   ├── renting.js
-│   │   └── index.js
-│   ├── models/                      # Database schemas
-│   │   ├── user.js
-│   │   ├── work_application.js
-│   │   ├── rent_machinery.js
-│   │   └── hirer_worker.js
-│   ├── routes/                      # API routes
-│   │   ├── index.js
-│   │   └── detection.js
-│   ├── mailer/                      # Email templates
-│   │   ├── application_accepted.js
-│   │   ├── worker_rating.js
-│   │   └── ...
-│   ├── mailTemplates/               # EJS email templates
-│   │   └── *.ejs files
-│   ├── server.js
-│   ├── predict.py
-│   └── package.json
-│
-├── Plant-Disease-Classifier-main/   # ML model directory
-│   ├── app.py
-│   ├── plant_disease_classifier.py
-│   ├── models/
-│   │   ├── best_model.pth           # PyTorch model
-│   │   ├── plant_disease_model.onnx
-│   │   ├── class_names.json
-│   │   └── model_config.json
-│   ├── sample_images/
-│   └── requirements.txt
-│
-├── generate_presentation.py         # Presentation generator script
-├── package.json
-├── PRESENTATION_GUIDE.md
-└── README.md
-```
+The project is organized into three main directories:
+
+**Client (Frontend)**
+- Contains the React-based user interface
+- Includes reusable UI components for common elements like navigation and cards
+- Page components for different sections: Home, Login, Registration, Profiles, Work Applications, Machinery Rentals, and Plant Disease Detection
+- Context system for managing authentication state
+- Stylesheet organization for consistent styling across the application
+
+**Server (Backend)**
+- Express.js web server handling all API requests
+- Configuration modules for authentication, JWT management, database connections, and email service
+- Business logic controllers for hiring and machinery rental features
+- Database models defining schemas for users, work applications, machinery rentals, and hirings
+- Email notification system with templates for various user actions
+- Plant disease detection routes for image upload and processing
+
+**Plant Disease Classifier (Machine Learning)**
+- Deep learning models for plant disease identification
+- Model files in both PyTorch and ONNX formats for cross-platform compatibility
+- Sample images and image preprocessing utilities
+- Model configuration and class name mappings
+- Python-based inference engine for disease detection
+
+**Configuration Files**
+- Package management files for dependencies
+- Presentation generation scripts
+- Documentation and guide files
 
 ## 🚀 Installation
 
+The application consists of three main components that need to be installed:
+
 ### Prerequisites
-- Node.js (v14 or higher)
-- Python (v3.8 or higher)
-- MongoDB (local or cloud instance)
-- Git
+Before starting, ensure you have:
+- Node.js installed (v14 or higher) for JavaScript/React development
+- Python installed (v3.8 or higher) for machine learning components
+- MongoDB database setup (local or cloud instance like MongoDB Atlas)
+- Git for version control
 
 ### Frontend Setup
-
-```bash
-cd client
-npm install
-npm start
-```
-
-The frontend will run on `http://localhost:3000`
+The React-based client application needs to be installed in the `client` directory with all dependencies, followed by starting the development server. The frontend will be accessible through a local development port.
 
 ### Backend Setup
-
-```bash
-cd server
-npm install
-```
-
-Configure environment variables in a `.env` file:
-```
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-EMAIL_SERVICE=your_email_service
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_email_password
-NODE_ENV=development
-PORT=5000
-```
-
-Start the server:
-```bash
-npm start
-```
-
-The backend will run on `http://localhost:5000`
+The Node.js/Express backend server requires dependency installation in the `server` directory. You'll need to configure environment variables for database connection, JWT authentication, and email service settings. Once configured, the server can be started and will listen on a specified port.
 
 ### ML Model Setup
-
-```bash
-cd Plant-Disease-Classifier-main
-pip install -r requirements.txt
-python app.py
-```
-
-The ML service will run on `http://localhost:5001` (or specified port)
+The plant disease detection model is located in the `Plant-Disease-Classifier-main` directory. Install Python dependencies and start the machine learning service. This will enable image processing and disease classification features.
 
 ## 📱 Usage
 
@@ -229,54 +151,17 @@ The ML service will run on `http://localhost:5001` (or specified port)
 4. Manage applications and rentals
 5. Rate workers and equipment
 
-## 🔌 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-
-### Work Applications
-- `GET /api/work` - Get all work opportunities
-- `POST /api/work` - Create work opportunity
-- `GET /api/work/:id` - Get specific work
-- `POST /api/work/:id/apply` - Apply for work
-- `GET /api/applications` - Get user applications
-- `PATCH /api/applications/:id` - Update application status
-
-### Machinery Rental
-- `GET /api/machinery` - Get all machinery
-- `POST /api/machinery` - Add machinery
-- `GET /api/machinery/:id` - Get specific machinery
-- `POST /api/machinery/:id/rent` - Rent machinery
-- `GET /api/rentals` - Get user rentals
-- `PATCH /api/rentals/:id` - Update rental status
-
-### Plant Disease Detection
-- `POST /api/detect` - Upload image and detect disease
-- `GET /api/detection/history` - Get detection history
-
-### User Management
-- `GET /api/user/profile` - Get user profile
-- `PATCH /api/user/profile` - Update profile
-- `POST /api/user/rate` - Rate a user
-
 ## 🌱 Plant Disease Detection
 
-The application includes an AI-powered plant disease detection system using:
+The application features an intelligent plant disease detection system that leverages advanced machine learning technology. This system is powered by deep learning models trained on extensive plant disease datasets, enabling accurate and reliable disease identification.
 
-- **PyTorch Model**: Deep learning model trained on plant disease datasets
-- **ONNX Format**: Cross-platform model deployment
-- **Image Processing**: Preprocessing for accurate detection
-- **Classification**: Multi-class disease identification
+The disease detection process involves uploading a plant image through the user interface, which is then processed using advanced image preprocessing techniques. The system applies various transformations to ensure optimal model performance. The processed image is analyzed by the trained neural network model, which has been optimized and deployed in ONNX format for efficient cross-platform inference. Results are returned with confidence scores for each possible disease classification, and the system provides actionable recommendations based on the detected disease type.
 
-### How It Works
-
-1. User uploads a plant image
-2. Image is preprocessed (resizing, normalization)
-3. ONNX model performs inference
-4. Results are returned with confidence scores
-5. Recommendations are provided based on detected disease
+### Technology Stack
+- **PyTorch Model**: Deep learning neural network trained on plant disease datasets
+- **ONNX Format**: Cross-platform model deployment for broad compatibility
+- **Image Processing**: Advanced preprocessing for enhanced detection accuracy
+- **Classification**: Multi-class disease identification with confidence scoring
 
 ## 💾 Database Models
 
@@ -317,13 +202,16 @@ The application uses JWT (JSON Web Tokens) for secure authentication:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome! Whether you're fixing bugs, adding new features, or improving documentation, your help is appreciated. To contribute:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repository on GitHub
+2. Create a new branch for your feature or bugfix
+3. Make your changes and test thoroughly
+4. Commit your changes with clear, descriptive messages
+5. Push your changes to your fork
+6. Open a Pull Request with a detailed description of your changes
+
+Please ensure your code follows the project's existing patterns and includes appropriate documentation.
 
 ## 📝 License
 
