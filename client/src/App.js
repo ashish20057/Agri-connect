@@ -15,6 +15,7 @@ import { Box, Grid } from "@mui/material";
 import HomePage from "./pages/HomePage";
 import ViewWorkApplications from "./pages/ViewWorkApplications";
 import ViewRentApplications from "./pages/ViewRentApplications";
+import DetectDisease from "./pages/DetectDisease";
 
 function App() {
   const theme = createTheme({
@@ -65,6 +66,11 @@ function App() {
               exact
               path="/view-rent-applications"
               element={<ViewRentApplications />}
+            />
+            <Route
+              exact
+              path="/detect-disease"
+              element={<DetectDisease />}
             />
           </Routes>
           {!isHiddenPath && <Footer />}

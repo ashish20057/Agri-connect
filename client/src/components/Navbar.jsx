@@ -221,6 +221,32 @@ function Navbar() {
             >
               <Link
                 className="nav-link active"
+                to="/detect-disease"
+                style={{
+                  fontFamily: "Quicksand",
+                  transition: "all 0.3s ease",
+                  color: "#134611",
+                }}
+              >
+                Detect Disease
+              </Link>
+            </Button>
+            <Button
+              disableRipple
+              variant="text"
+              sx={{
+                fontWeight: "bold",
+                transition: "all 0.3s ease",
+                border: "2px solid transparent",
+                "&:hover": {
+                  borderBottom: "2px solid #134611",
+                  borderTopRightRadius: "5px",
+                  borderTopLeftRadius: "5px",
+                },
+              }}
+            >
+              <Link
+                className="nav-link active"
                 to="/aboutus"
                 style={{ fontFamily: "Quicksand", color: "#134611" }}
               >

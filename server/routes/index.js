@@ -6,6 +6,7 @@ import * as controller from '../controller/index.js';
 import * as hiring_controller from '../controller/hiring.js';
 import * as renting_controller from '../controller/renting.js';
 import { authenticateToken } from '../config/authMiddleware.js';
+import detectionRouter from './detection.js';
 
 dotenv.config();
 const router = express.Router();
@@ -60,5 +61,7 @@ router.post('/rent-machinery', authenticateToken, renting_controller.rent_machin
 router.get('/getTomTomApiKey', authenticateToken, (req, res) => {
   return res.status(200).json({ message: 'Api key sent successfully!', apiKey: process.env.API_KEY });
 });
+
+router.use('/detection', detectionRouter);
 
 export default router;
